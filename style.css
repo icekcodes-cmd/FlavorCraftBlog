@@ -1,0 +1,647 @@
+/* ==========================================================================
+   1. GLOBAL RESET & BASE STYLES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding doesn't affect total element widths */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212; /* Dark professional theme background */
+    color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Establishes full-height flex column layout for sticky footers */
+}
+
+/* ==========================================================================
+   2. HEADER & STICKY NAVIGATION MENU
+   ========================================================================== */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(18, 18, 18, 0.95); /* Slight transparency for modern aesthetic */
+    position: sticky; /* Locks header to top on scroll */
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #222;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #ff7e5f; /* Brand accent color */
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: #adb5bd;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover, .active-nav {
+    color: #ffffff;
+}
+
+.active-nav {
+    border-bottom: 2px solid #ff7e5f; /* Highlights current active page */
+    padding-bottom: 2px;
+}
+
+.nav-btn {
+    background: #ff7e5f;
+    color: #fff !important;
+    padding: 8px 18px;
+    border-radius: 20px;
+    transition: background 0.3s ease, transform 0.2s ease !important;
+}
+
+.nav-btn:hover {
+    background: #e06548;
+    transform: translateY(-2px); /* Subtle lift effect */
+}
+
+/* ==========================================================================
+   3. HERO BANNER SECTION
+   ========================================================================== */
+.hero-section {
+    height: 65vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1543353071-873f17a7a088?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: #ced4da;
+    margin-bottom: 25px;
+}
+
+.hero-cta {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #ff7e5f;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.hero-cta:hover {
+    background: #e06548;
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   4. FEATURES SECTION (HIGHLIGHTS)
+   ========================================================================== */
+.features-section {
+    background-color: #1a1a1a;
+    padding: 60px 20px;
+    border-bottom: 1px solid #282828;
+}
+
+.features-container {
+    display: flex;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Allows cards to wrap nicely on smaller screens */
+    justify-content: center;
+}
+
+.feature-card {
+    flex: 1;
+    min-width: 250px;
+    background: #222;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid #333;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: #ff7e5f;
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.feature-card p {
+    color: #a0a0a0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   5. VIDEO MASTERCLASS SECTION
+   ========================================================================== */
+.video-section {
+    padding: 80px 20px;
+    background-color: #161616;
+    border-bottom: 1px solid #282828;
+}
+
+.video-container-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #adb5bd;
+    font-size: 1rem;
+    margin-top: -30px;
+    margin-bottom: 40px;
+}
+
+.video-grid {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.video-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 520px;
+    background: #1e1e1e;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #282828;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    border-color: #ff7e5f;
+}
+
+/* Responsive 16:9 Video Wrapper using aspect-ratio */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-info {
+    padding: 25px 20px;
+}
+
+.video-info h3 {
+    font-size: 1.25rem;
+    color: #fff;
+    margin: 10px 0 8px;
+    line-height: 1.3;
+}
+
+.video-info p {
+    color: #a0a0a0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   6. FEATURED FOOD ARTICLE SECTION
+   ========================================================================== */
+.article-section {
+    padding: 80px 20px;
+    background: #121212;
+}
+
+.article-container {
+    display: flex;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid #282828;
+}
+
+.article-image {
+    flex: 1;
+    min-width: 300px;
+    height: 350px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.article-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.article-container:hover .article-image img {
+    transform: scale(1.05); /* Smooth zoom effect on hover */
+}
+
+.article-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.article-tag {
+    color: #ff7e5f;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.article-content h2 {
+    font-size: 2rem;
+    margin: 10px 0;
+    color: #fff;
+    line-height: 1.3;
+}
+
+.article-meta {
+    color: #777;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+}
+
+.article-content p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.read-more-btn {
+    color: #ff7e5f;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.read-more-btn:hover {
+    color: #fff;
+}
+
+/* ==========================================================================
+   7. RECIPE CARDS GRID SECTION
+   ========================================================================== */
+
+.main-content {
+    padding: 60px 20px 80px;
+    flex: 1;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+}
+
+.container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.card-link {
+    text-decoration: none;
+}
+
+/* Card Wrapper handles the rotating border and overflow */
+.card {
+    width: 340px;
+    height: 380px;
+    position: relative;
+    overflow: hidden; /* Clips the rotating gradient to create a border effect */
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 30px rgba(255, 126, 95, 0.2);
+}
+
+/* Rotating Gradient Background */
+.card::before {
+    content: "";
+    position: absolute;
+    /* Make it large enough to cover the corners while rotating */
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(0deg, transparent, transparent, #00b7ff, #ff30ff);
+    animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Inner Background Mask to create the thin border look */
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 4px; /* Controls border thickness */
+    background: #1e1e1e;
+    border-radius: 16px;
+    z-index: 1;
+}
+
+/* Card Image Layer */
+.card img {
+    position: absolute;
+    inset: 4px; /* Matches the inner mask so it doesn't cover the border */
+    width: calc(100% - 8px);
+    height: calc(100% - 8px);
+    object-fit: cover;
+    border-radius: 16px;
+    transition: transform 0.5s ease;
+    z-index: 2; /* Sits above the inner background */
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+/* Card Overlay for Text */
+.card-overlay {
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    width: calc(100% - 8px);
+    padding: 25px 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    z-index: 3; /* Sits on top of the image */
+}
+
+.tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    background: #ff7e5f;
+    padding: 3px 10px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.card-overlay h3 {
+    font-size: 1.25px;
+    font-size: 1.25rem;
+    color: #fff;
+    line-height: 1.3;
+}
+
+/* ==========================================================================
+   8. RECIPE DETAIL PAGE SPECIFIC LAYOUTS
+   ========================================================================== */
+.recipe-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    flex: 1;
+}
+
+.recipe-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.recipe-header h1 {
+    font-size: 2.5rem;
+    margin: 10px 0 15px;
+    color: #ffffff;
+}
+
+.recipe-intro {
+    color: #adb5bd;
+    font-size: 1.05rem;
+    max-width: 700px;
+    margin: 0 auto 20px;
+    line-height: 1.5;
+}
+
+.recipe-meta-bar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    background: #1a1a1a;
+    padding: 12px 20px;
+    border-radius: 30px;
+    border: 1px solid #282828;
+    font-size: 0.9rem;
+    color: #ced4da;
+}
+
+.recipe-hero-image {
+    width: 100%;
+    height: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+.recipe-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.recipe-grid {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.recipe-ingredients {
+    flex: 1;
+    min-width: 280px;
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid #282828;
+    height: fit-content;
+}
+
+.recipe-ingredients h2, .recipe-instructions h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #ff7e5f;
+    border-bottom: 1px solid #282828;
+    padding-bottom: 10px;
+}
+
+.recipe-ingredients h3 {
+    font-size: 1.1rem;
+    margin: 20px 0 10px;
+    color: #fff;
+}
+
+.recipe-ingredients ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #ccc;
+}
+
+.recipe-ingredients li {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.recipe-instructions {
+    flex: 2;
+    min-width: 300px;
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid #282828;
+}
+
+.steps-list {
+    list-style: none;
+}
+
+.steps-list li {
+    margin-bottom: 25px;
+}
+
+.steps-list h4 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+
+.steps-list p {
+    color: #b0b0b0;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   9. FOOTER & SOCIAL MEDIA ICONS
+   ========================================================================== */
+.site-footer {
+    background: #0a0a0a;
+    padding: 50px 20px 30px;
+    border-top: 1px solid #222;
+    margin-top: auto; /* Pushes footer to bottom of flex container */
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.footer-brand p {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    background: #1f1f1f;
+    color: #ff7e5f;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+    background: #ff7e5f;
+    color: #fff;
+    transform: translateY(-3px); /* Lifts icon on hover */
+}
+
+.copyright {
+    text-align: center;
+    color: #444;
+    font-size: 0.85rem;
+    border-top: 1px solid #1a1a1a;
+    padding-top: 25px;
+}
